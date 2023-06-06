@@ -15,30 +15,31 @@ const Banner = () => {
         <Carousel>
             <div>
                 <img src={img1} alt="" />
-                <h3>img 1</h3>
+               
             </div>
             <div>
                 <img src={img2} alt="" />
-                <h3>img 1</h3>
+               
             </div>
             <div>
                 <img src={img3} alt="" />
-                <h3>img 1</h3>
+               
             </div>
             <div>
                 <img src={img4} alt="" />
-                <h3>img 1</h3>
+               
             </div>
             <div>
                 <img src={img5} alt="" />
-                <h3>img 1</h3>
+               
             </div>
             <div>
                 <img src={img6} alt="" />
-                <h3>img 1</h3>
+               
             </div>
 
         </Carousel>
+      
     );
 };
 
