@@ -12,5 +12,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// 74.3 er 8 minutes
