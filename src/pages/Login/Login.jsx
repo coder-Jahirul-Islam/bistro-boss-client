@@ -2,10 +2,14 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     const captchaRef = useRef(null);
     const [disabled, setDisabled] = useState(true);
 
@@ -29,13 +33,14 @@ const Login = () => {
                 Swal.fire({
                     title: 'User Login Successful.',
                     showClass: {
-                      popup: 'animate__animated animate__fadeInDown'
+                        popup: 'animate__animated animate__fadeInDown'
                     },
                     hideClass: {
-                      popup: 'animate__animated animate__fadeOutUp'
+                        popup: 'animate__animated animate__fadeOutUp'
                     }
-                  })
-                
+                })
+                navigate(from, {replace: true})
+
             })
     }
 
@@ -82,7 +87,7 @@ const Login = () => {
                                 <label className="label">
                                     <LoadCanvasTemplate />
                                 </label>
-                                <input onBlur={handleValidateCaptcha}   type="text"  name="captcha" placeholder="type the text captcha above" className="input input-bordered" />
+                                <input onBlur={handleValidateCaptcha} type="text" name="captcha" placeholder="type the text captcha above" className="input input-bordered" />
 
                             </div>
                             <div className="form-control mt-6">
