@@ -18,6 +18,7 @@ const NavBar = () => {
         <li><Link to='secret'>Secret</Link></li>
         {
             user ? <>
+                <span>{user?.displayName}</span>
                 <li><button onClick={handleLogOut} className="btn btn-xs mt-1 btn-ghost capitalize">LogOut</button></li>
 
             </> : <>
