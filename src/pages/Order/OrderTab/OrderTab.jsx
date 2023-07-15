@@ -1,14 +1,10 @@
 import FoodCard from "../../../components/FoodCard/FoodCard";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
-
-
-
-
+// TODO: implement pagination here on this page
 const OrderTab = ({ items }) => {
     const pagination = {
         clickable: true,
@@ -18,8 +14,6 @@ const OrderTab = ({ items }) => {
     };
     return (
         <div>
-
-
             <Swiper
                 pagination={pagination}
                 modules={[Pagination]}
@@ -33,9 +27,7 @@ const OrderTab = ({ items }) => {
                                 item={item}></FoodCard>)
                         }
                     </div>
-
                 </SwiperSlide>
-
             </Swiper>
         </div>
     );
