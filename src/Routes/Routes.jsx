@@ -9,6 +9,8 @@ import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import PrivetRoute from "./PrivetRoute";
 import Secret from "../pages/Shared/Secret/Secret";
+import Dashboard from "../Layout/Dashboard";
+import MyCart from "../pages/Dashboard/MyCart/MyCart";
 
 
 
@@ -44,6 +46,16 @@ export const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path:'dashboard',
+        element:<Dashboard></Dashboard>,
+        children:[
+            {
+                path:'mycart',
+                element:<MyCart></MyCart>
+            }
+        ]
+    }
 ]);
 
 // 75.7 er 5 m theke shuro
