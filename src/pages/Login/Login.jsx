@@ -4,6 +4,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -19,7 +20,7 @@ const Login = () => {
     useEffect(() => {
         loadCaptchaEnginge(6);
 
-    }, [])
+    }, []);
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -96,6 +97,8 @@ const Login = () => {
                             </div>
                         </form>
                         <p><small>New Here? <Link to="/signup">Create an account </Link></small></p>
+                        <SocialLogin></SocialLogin>
+                    
                     </div>
                 </div>
             </div>
