@@ -33,26 +33,26 @@ export const router = createBrowserRouter([
                 element: <Order></Order>
             },
             {
-                path:"login",
-                element:<Login></Login>
+                path: "login",
+                element: <Login></Login>
             },
             {
-                path:"signup",
-                element:<SignUp></SignUp>
+                path: "signup",
+                element: <SignUp></SignUp>
             },
             {
-                path:"secret",
-                element:<PrivetRoute><Secret></Secret></PrivetRoute>
+                path: "secret",
+                element: <PrivetRoute><Secret></Secret></PrivetRoute>
             }
         ]
     },
     {
-        path:'dashboard',
-        element:<Dashboard></Dashboard>,
-        children:[
+        path: 'dashboard',
+        element: <PrivetRoute><Dashboard></Dashboard></PrivetRoute>,
+        children: [
             {
-                path:'mycart',
-                element:<MyCart></MyCart>
+                path: 'mycart',
+                element: <MyCart></MyCart>
             }
         ]
     }

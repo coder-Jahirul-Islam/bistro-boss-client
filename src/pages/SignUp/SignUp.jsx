@@ -12,24 +12,37 @@ const SignUp = () => {
     const navigate = useNavigate();
 
     const onSubmit = data => {
-        console.log(data);
-        reset();
+
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                updateUserProfile(data.name, data.photoURL)
+                updateUserProfile(data.name, data.photoURL,)
                     .then(() => {
-                        console.log("User profile info Updated");
-                        reset();
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'User created successfully.',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        navigate('/');
+                        const saveUser = { name: data.name, email: data.email };
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    console.log("User profile info Updated");
+                                    reset();
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User created successfully.',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                    console.log(saveUser);
+                                }
+                            })
                     })
                     .catch(error => {
                         console.log(error);
@@ -99,7 +112,6 @@ const SignUp = () => {
                     </div>
                 </div>
             </div>
-
         </>
     );
 };
